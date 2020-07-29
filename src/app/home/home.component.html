@@ -1,0 +1,33 @@
+<ActionBar>
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="Home"></Label>
+</ActionBar>
+
+<GridLayout class="page__content" id="page__content" >
+
+        <StackLayout *ngIf="!win()">
+            <Label id="h1"  text="FIFA WORLD CUP 2022"></Label>
+          <Label id="h2"   text="WELCOME TO QATAR"></Label>
+     <img marginTop="40" src="~/assets/img/allflags.png" width="500" height="440"    />
+        </StackLayout>
+        <StackLayout *ngIf="win()">
+            <Label id="h1" text="CONGRATULATION {{winner}}"></Label>
+        <img id="win" src="~/assets/flags/{{winner}}.png"  />
+        </StackLayout>
+
+
+
+
+</GridLayout>

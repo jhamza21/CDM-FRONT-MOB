@@ -1,0 +1,30 @@
+<ActionBar>
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="Team List"></Label>
+</ActionBar>
+
+<GridLayout id="pp" >
+    <ListView [items]="teams">
+        <ng-template let-item="item">
+            <GridLayout columns="30,100,auto,auto" >
+                <Image col="0" src="~/assets/flags/{{item.name}}.png"  width="30" height="30"  ></Image>
+                <Label col="1" id="lab" [text]="item.name"></Label>
+                <button col="2" id="del" (tap)="deleteTeam(item.id)" text="Delete"></button>
+                <button col="3" id="sub" [nsRouterLink]="['/detailsteam', item.id]" text="Details"></button>
+            </GridLayout>
+        </ng-template>
+          </ListView>
+
+</GridLayout>

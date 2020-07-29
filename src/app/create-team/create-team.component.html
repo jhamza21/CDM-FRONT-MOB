@@ -1,0 +1,46 @@
+
+<ActionBar>
+        <!--
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+        <!--
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+            ios.position="left">
+        </ActionItem>
+        <Label text="Create Team"></Label>
+    </ActionBar>
+
+<StackLayout id="pp">
+        <Label style=" margin-top: 50;" text="Name :"></Label>
+<TextField
+           disabled="true"
+           readOnly="true"
+           [text]='t.name'
+          (tap)=confirm()
+           keyboardType="number">
+
+        </TextField>
+
+
+        <Label text="Staff number :"></Label>
+<TextField
+[(ngModel)]="t.nbrstaff"
+           keyboardType="number"
+           maxLength="10">
+        </TextField>
+        <Label text="Player Number :"></Label>
+
+        <TextField
+        [(ngModel)]="t.nbrplayer"
+        keyboardType="number"
+        maxLength="10">
+     </TextField>
+     <Button id="sub" text="Create" (tap)="save()"></Button>
+
+        </StackLayout>

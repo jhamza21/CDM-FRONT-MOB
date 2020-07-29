@@ -1,0 +1,24 @@
+<ActionBar>
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()">
+  </NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+      ios.position="left">
+  </ActionItem>
+  <Label text="Matchs List"></Label>
+</ActionBar>
+
+<GridLayout id="pp">
+  <ListView [items]="matchs">
+      <ng-template let-item="item">
+        <GridLayout columns="30,70,40,40,70,30,100" >
+              <Image [nsRouterLink]="['/detailsmatch', item.id]" col="0" src="~/assets/flags/{{item.teams[0].name}}.png"  width="30" height="30"  ></Image>
+              <Label [nsRouterLink]="['/detailsmatch', item.id]" col="1" [text]="item.teams[0].name"></Label>
+              <Label col="2" class="h2" style="color: white;" text="VS"></Label>
+              <Image [nsRouterLink]="['/detailsmatch', item.id]" col="3" src="~/assets/flags/{{item.teams[1].name}}.png"  width="30" height="30"  ></Image>
+              <Label   [nsRouterLink]="['/detailsmatch', item.id]"col="4" [text]="item.teams[1].name"></Label>
+              <Image  col="5" *ngIf="isUpdated(item)" src="~/assets/img/verif.png"  width="30" height="30"  ></Image>
+              <button id="sub" col="6" text="Update" (tap)="confirm(item)"></button>
+        </GridLayout>
+      </ng-template>
+        </ListView>
+      </GridLayout>

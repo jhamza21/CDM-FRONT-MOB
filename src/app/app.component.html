@@ -1,0 +1,77 @@
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content">
+        <StackLayout row="0" class="nt-drawer__header">
+            <Image marginTop="30" width="300"height="80" src="~/assets/img/cup.png"></Image>
+            <Label class="nt-drawer__header-brand" text="FIFA WORLD CUP"></Label>
+            <Label class="nt-drawer__header-footnote" text="QATAR 2022"></Label>
+        </StackLayout>
+
+        <ScrollView row="1" class="nt-drawer__body">
+            <StackLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
+                    <Label col="0" text="&#xf015;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Home" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/createteam')" (tap)="onNavItemTap('/createteam')">
+                    <Label col="0" text="&#xf1ea;" class="nt-icon far"></Label>
+                    <Label col="1" text="Create Team" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/teams')" (tap)="onNavItemTap('/teams')">
+                    <Label col="0" text="&#xf002;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Team List" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/poules')" (tap)="onNavItemTap('/poules')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Groups List" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/matchs/1')" (tap)="onNavItemTap('/matchs/1')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Matchs Groups" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/matchs/2')" (tap)="onNavItemTap('/matchs/2')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Matchs KO" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/matchs/3')" (tap)="onNavItemTap('/matchs/3')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Matchs Quarter" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/matchs/4')" (tap)="onNavItemTap('/matchs/4')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Matchs Semi" class="p-r-10"></Label>
+                </GridLayout>  <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/matchs/5')" (tap)="onNavItemTap('/matchs/5')">
+                    <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Match Final" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr"></StackLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" (tap)="generer_pool()">
+                    <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Start Group Stage" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" (tap)="generer_pool_p()">
+                    <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Start Knock-out Stage" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" (tap)="generer_pool_g()">
+                    <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Start Quarter Final Stage" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" (tap)="generer_pool_s()">
+                    <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Start Semi Final Stage" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" (tap)="generer_pool_f()">
+                    <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Start Final Stage" class="p-r-10"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

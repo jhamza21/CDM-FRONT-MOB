@@ -1,0 +1,51 @@
+<ActionBar>
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()">
+  </NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+      ios.position="left">
+  </ActionItem>
+  <Label text="Group List"></Label>
+</ActionBar>
+
+
+<GridLayout id="pp" >
+  <ListView [items]="p">
+      <ng-template  let-item="item">
+
+            <GridLayout columns="50,280,80" rows="40,50,50,50,50"  >
+              <Label col="0" row="0" colSpan="2" text="Team Name"></Label>
+              <Label col="2" row="0" colSpan="2" text="Point"></Label>
+
+              <Image col="0" row="1" src="~/assets/flags/{{item.teams[0].name}}.png"  width="30" height="30"  ></Image>
+              <Label col="1" row="1"  [text]="item.teams[0].name"></Label>
+              <Label col="2" row="1" [text]="item.teams[0].point"></Label>
+
+
+              <Image col="0" row="2" src="~/assets/flags/{{item.teams[1].name}}.png"  width="30" height="30"  ></Image>
+              <Label col="1" row="2"  [text]="item.teams[1].name"></Label>
+              <Label col="2" row="2" [text]="item.teams[1].point"></Label>
+
+
+              <Image col="0" row="3" src="~/assets/flags/{{item.teams[2].name}}.png"  width="30" height="30"  ></Image>
+              <Label col="1" row="3"  [text]="item.teams[2].name"></Label>
+              <Label col="2" row="3" [text]="item.teams[2].point"></Label>
+
+              <Image col="0" row="4" src="~/assets/flags/{{item.teams[3].name}}.png"  width="30" height="30"  ></Image>
+              <Label col="1" row="4"  [text]="item.teams[3].name"></Label>
+              <Label col="2" row="4" [text]="item.teams[3].point"></Label>
+
+                    </GridLayout>
+
+
+      </ng-template>
+        </ListView>
+      </GridLayout>
+
+
+
+
+
+
+
+
+

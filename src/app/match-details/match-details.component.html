@@ -1,0 +1,49 @@
+
+
+<ActionBar>
+  <!--
+  Use the NavigationButton as a side-drawer button in Android
+  because ActionItems are shown on the right side of the ActionBar
+  -->
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <!--
+  Use the ActionItem for IOS with position set to left. Using the
+  NavigationButton as a side-drawer button in iOS is not possible,
+  because its function is to always navigate back in the application.
+  -->
+  <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+      ios.position="left">
+  </ActionItem>
+  <Label text="Match Details"></Label>
+</ActionBar>
+<StackLayout id="pp" orientation="vertical">
+<GridLayout style="margin-left: 80;" columns="100,40,auto" rows="50,auto,50,50">
+    <Label col="0" row="0" [text]="m.teams[0].name"></Label>
+    <Label col="1" row="0" text="VS"></Label>
+    <Label col="2" row="0" [text]="m.teams[1].name"></Label>
+
+  <Image col="0" colSan="2" row="1" src="~/assets/flags/{{m.teams[0].name}}.png" ></Image>
+  <Image col="2" row="1"src="~/assets/flags/{{m.teams[1].name}}.png" ></Image>
+
+  <Label *ngIf="m.scorea!=null" col="0" colSpan="2" row="2" [text]="m.scorea"></Label>
+  <Label *ngIf="m.scoreb!=null" col="2" row="2" [text]="m.scoreb"></Label>
+
+  <Label *ngIf="m.penoa!=null" col="0" row="3" [text]="'('+m.penoa"></Label>
+  <Label *ngIf="m.penoa!=null" col="1" row="3" text=","></Label>
+  <Label *ngIf="m.penob!=null" col="2" row="3" [text]="m.penob+')'"></Label>
+
+</GridLayout>
+<GridLayout columns="auto" rows="50,50,50,50,50,50,50,50">
+   <Label row="0" [text]="'Stadium : '+m.stadium"></Label>
+
+   <Label row="1" [text]="'Date: '+m.date"></Label>
+
+   <Label row="2" [text]="'Hour : '+m.hour"></Label>
+
+  <Label row="3" text="Referees : "></Label>
+  <Label row="4" [text]="'1) '+m.referees[0].name"></Label>
+  <Label row="5" [text]="'2) '+m.referees[1].name"></Label>
+  <Label row="6" [text]="'3) '+m.referees[2].name"></Label>
+  <Label row="7" [text]="'4) '+m.referees[3].name"></Label>
+</GridLayout>
+</StackLayout>
